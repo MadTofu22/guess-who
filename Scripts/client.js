@@ -13,6 +13,7 @@ function onReady () {
         $('#images').append(addDiv(person));
     }
     promptSelection();
+    $('main').on('click', 'div', checkSelection);
 }
 
 //append div elements for each profile in data.js, with the image from the profile page, to the DOM
@@ -44,7 +45,14 @@ function promptSelection () {
     $('main').prepend(`<h2>Click on: ${currentSelection}</h2>`);
 }
 
+//creates a random integer for selecting an array element
 function randomNumber (min, max) {
 
     return Math.floor(Math.random() * (1 + max - min) + min);
+}
+
+function checkSelection () {
+    
+    console.log('hello from check selection');
+    
 }
