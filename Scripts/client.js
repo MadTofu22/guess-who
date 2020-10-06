@@ -27,7 +27,7 @@ function addDiv (person) {
     
     let src = `src="https://github.com/${person.githubUsername}.png?size=250"`;
     let alt = `alt="Profile picture of ${person.name}"`;
-    let imgTag = `<img ${src} ${alt}/>`;
+    let imgTag = `<img ${src} ${alt} id="${person.name}"/>`;
 
     console.log(imgTag);
     
@@ -55,4 +55,13 @@ function checkSelection () {
     
     console.log('hello from check selection');
     
+    let clickedPerson = $(this).children().prop('id');
+    
+    if (clickedPerson === currentSelection) {
+        alert('You win! On to the next!');
+        promptSelection();
+    }
+    else {
+        alert('Nope... try again!');
+    }
 }
