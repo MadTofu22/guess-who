@@ -3,6 +3,8 @@ console.log('Here are all the available people:', people);
 
 $(onReady);
 
+let currentSelection = null;
+
 function onReady () {
 
     console.log('Hello from jquery.js');
@@ -10,6 +12,7 @@ function onReady () {
     for (let person of people) {
         $('#images').append(addDiv(person));
     }
+    promptSelection();
 }
 
 //append div elements for each profile in data.js, with the image from the profile page, to the DOM
@@ -29,4 +32,19 @@ function addDiv (person) {
     
 
     return `<div>${imgTag}</div>`;
+}
+
+//get a random person from the data array and add the prompt to the screen. Store the person in global variable to check against on click
+function promptSelection () {
+
+    console.log('hello from prompt selection');
+
+    let randomSelection = randomNumber(0, people.length);
+    currentSelection = people[randomSelection].name;
+    $('main').prepend(`<h2>Click on: ${currentSelection}</h2>`);
+}
+
+function randomNumber (min, max) {
+
+    return Math.floor(Math.random() * (1 + max - min) + min);
 }
