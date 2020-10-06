@@ -42,7 +42,7 @@ function promptSelection () {
 
     let randomSelection = randomNumber(0, people.length);
     currentSelection = people[randomSelection].name;
-    $('main').prepend(`<h2>Click on: ${currentSelection}</h2>`);
+    $('#prompt').text(`Click on: ${currentSelection}`);
 }
 
 //creates a random integer for selecting an array element
@@ -58,8 +58,8 @@ function checkSelection () {
     let clickedPerson = $(this).children().prop('id');
     
     if (clickedPerson === currentSelection) {
-        alert('You win! On to the next!');
         promptSelection();
+        alert('You win! On to the next!');
     }
     else {
         alert('Nope... try again!');
